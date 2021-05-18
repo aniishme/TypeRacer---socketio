@@ -20,6 +20,6 @@ nsp.on("connection", require("./controllers/singlePlayerHandler"));
 
 require("./controllers/multiPlayerHandler.js")(io);
 
-server.listen(3000, () => {
+server.listen(process.env.PORT || 5000, () => {
   console.log("Server started at port 3000");
 });
