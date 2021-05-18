@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Type Racer</title>
+    <style>
+        *{
+            padding:0;
+            margin:0;
+            box-sizing: border-box;
+        }
+        .main{
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+            height: 100vh;
+            width: 100%;
+            background-color: #1e1e1e;
+        }
+        .main a{
+            color: aliceblue;
+            padding: 10px;
+            width:200px;
+            text-align: center;
+            text-decoration: none;
+            background-color: rgb(29, 25, 21);
+            border: 1px solid black;
+            margin:10px;
+            font-size: 2rem;
+        }
+    </style>
+</head>
+<body>
+    <div class="main">
+        <a href="/classic">Practice</a>
+    </div>
+    <script>
+        const generateRandomString = (length=9)=>Math.random().toString(20).substr(2, length)
+        const main = document.querySelector('.main')
+        const randomstring = generateRandomString()
+        const multiplayerlink = document.createElement("a")
+        multiplayerlink.innerText = "1 V 1"
+        multiplayerlink.setAttribute("href", `/multiplayer/?roomid=${randomstring}`)
+        main.appendChild(multiplayerlink)
+    </script>
+</body>
+</html>

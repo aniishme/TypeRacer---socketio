@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/typstyle.css">
+    <title>Multiplayer Typing</title>
+    <style>
+        body{
+            display: flex;
+            flex-direction: row-reverse;
+            align-items: center;
+            justify-content: space-between;
+        }
+        .userjoined{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            width: 20%;
+            color: white;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="userjoined">
+        <div>
+            Users Joined:
+        <ul class="users">
+            
+        </ul>
+        </div>
+        
+
+        
+        <div class="stats_bar">
+            Opponent stats:<br><br><br>
+            <span class="total_words id="opp_total_words"></span> 
+            <span class="wpm" id="opp_wpm"></span>
+            <span class="incorrect" id="opp_incorrect"></span>
+        </div>
+    </div>
+    <div class="typing_window">
+        
+        <div class="stats_bar">
+            <span id="total_words" class="total_words"></span> 
+            <span id="wpm" class="wpm"></span>
+            <span id="incorrect" class="incorrect"></span>
+        </div>
+        
+        <span id="timer">start typing to begin</span>
+        <span id="word_typed"></span>
+        <div class="text_wrapper">
+        </div>
+        <input disabled  type="text" name="text" id="text">
+        <br><br>
+        <button id="start">Start</button>
+    </div>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/qs/6.10.1/qs.min.js"></script>
+    <script src="/typer.js"></script>
+    <script src="/multiplayer.js"></script>
+</body>
+</html>

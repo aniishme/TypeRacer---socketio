@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/typstyle.css">
+    <title>Speed Typer || By Anish</title>
+    
+    <div class="typing_window">
+        <div class="stats_bar">
+            <span id="total_words" class="total_words"></span> 
+            <span id="wpm" class="wpm"></span>
+            <span id="incorrect" class="incorrect"></span>
+        </div>
+        <span id="timer">start typing to begin</span>
+        <span id="word_typed"></span>
+        <div class="text_wrapper">
+        </div>
+        <input  type="text" name="text" id="text">
+        <br><br>
+    </div>
+
+</head>
+<body>
+    <script src="/socket.io/socket.io.js"></script>
+    <script src="/typer.js"></script>
+    <script>
+        const socket = io("/classic");
+
+        function startTimer() {
+        socket.emit("starttimer");
+        }
+
+        input.addEventListener("keyup", () => {
+        if (keypressed === 0) {
+            startTimer();
+            keypressed++;
+        }
+        });
+
+        socket.on("starttimer", (time) => {
+        timer.innerHTML = time;
+        showStats(time);
+
+        if (time === 0) {
+            timer.innerHTML = "Over...";
+            input.disabled = true;
+        }
+        });
+    </script>
+</body>
+</html>
