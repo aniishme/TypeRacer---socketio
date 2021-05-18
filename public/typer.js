@@ -103,7 +103,6 @@ const words = [
 const mainDiv = document.querySelector(".text_wrapper");
 const input = document.querySelector("#text");
 const timer = document.querySelector("#timer");
-const start = document.querySelector("button");
 let keypressed = 0;
 let typed = [];
 

@@ -5,6 +5,7 @@ let joinedusers = [];
 function connectToMultiplayer(io) {
   const nspmp = io.of("/multiplayer");
   nspmp.on("connection", (socket) => {
+    socket.emit("wordlists", words);
     socket.on("joinRoom", ({ roomid, username }) => {
       if (usersOnRoom(roomid).length < 2) {
         socket.join(roomid);
@@ -30,6 +31,9 @@ function connectToMultiplayer(io) {
       });
       socket.on("oppstats", (stats) => {
         socket.to(roomid).emit("oppstats", stats);
+      });
+      socket.on("restart", () => {
+        nspmp.to(roomid).emit("restart");
       });
 
       socket.on("disconnecting", () => {
