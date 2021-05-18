@@ -5,7 +5,6 @@ let joinedusers = [];
 function connectToMultiplayer(io) {
   const nspmp = io.of("/multiplayer");
   nspmp.on("connection", (socket) => {
-    socket.emit("wordlists", words);
     socket.on("joinRoom", ({ roomid, username }) => {
       if (usersOnRoom(roomid).length < 2) {
         socket.join(roomid);
