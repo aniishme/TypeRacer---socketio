@@ -1,7 +1,6 @@
 const Timer = require("tiny-timer");
 
 const onConnection = (socket) => {
-  console.log("User connected: ", socket.id);
   socket.on("starttimer", () => {
     const timer = new Timer({ interval: 1000, stopwatch: false });
     timer.start(60000);
